@@ -3,7 +3,6 @@ package com.kamertic.gestion_etudiant_sa.dtos;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentStatus;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentType;
 import com.kamertic.gestion_etudiant_sa.entities.Student;
-import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
