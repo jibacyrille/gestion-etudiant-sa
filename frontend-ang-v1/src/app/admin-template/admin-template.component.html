@@ -5,7 +5,7 @@
     <span style="flex: auto"></span>
     <button mat-flat-button routerLink="/admin/home">Home</button>
     <button mat-button routerLink="/admin/profile">Profile</button>
-    <button mat-button [matMenuTriggerFor]="importMenu">
+    <button *ngIf="authService.roles.includes('ADMIN')" mat-button [matMenuTriggerFor]="importMenu">
         <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
         Import</button>
     <mat-menu #importMenu>

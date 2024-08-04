@@ -8,10 +8,17 @@ export class AuthorizationGuard {
              ){
 
   }
-  canActivate(route: ActivatedRouteSnapshot, 
+   canActivate(route: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot):MaybeAsync<GuardResult>{
       if(this.autheService.isAuthenticated){
-        return true;
+        let requiresRoles=route.data['roles']
+        let userRoles = this.autheService.roles;
+        for(let role of userRoles){
+          if(requiresRoles.includes(role)){
+            return true;
+          } 
+        }
+        return false;
       } else {
         this.router.navigateByUrl("/login");
         return false;

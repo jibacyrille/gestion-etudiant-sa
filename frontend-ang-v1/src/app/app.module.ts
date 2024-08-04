@@ -26,6 +26,11 @@ import { PaymentsComponent } from './payments/payments.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthorizationGuard } from './guards/authorization.guard';
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 
 @NgModule({
@@ -39,7 +44,8 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     StudentsComponent,
     PaymentsComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,13 +60,16 @@ import { AuthGuard } from './guards/auth.guard';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatTableModule,MatPaginatorModule,
+    MatSortModule 
   ],
   providers: [
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimationsAsync(),
-    AuthGuard
+    AuthGuard, AuthorizationGuard
   ],
   bootstrap: [AppComponent]
 })
