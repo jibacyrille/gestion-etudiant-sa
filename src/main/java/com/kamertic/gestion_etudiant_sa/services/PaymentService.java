@@ -1,5 +1,6 @@
 package com.kamertic.gestion_etudiant_sa.services;
 
+import com.kamertic.gestion_etudiant_sa.dtos.PaymentDTO;
 import com.kamertic.gestion_etudiant_sa.entities.Payment;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentStatus;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentType;
@@ -34,8 +35,7 @@ public class PaymentService {
     }
 
     @PostMapping(path="/payments", consumes= MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Payment savePayment(MultipartFile file, LocalDate date, double amount,
-                               PaymentType type, String studentCode) throws IOException {
+    public Payment savePayment(MultipartFile file, PaymentDTO newPaymentDTO) throws IOException {
         Path folderPath= Paths.get(System.getProperty("user.home"), "kamertic-data", "payments");
         if(!Files.exists(folderPath)){
             Files.createDirectories(folderPath);
@@ -43,10 +43,11 @@ public class PaymentService {
         String fileName= UUID.randomUUID().toString();
         Path filePath= Paths.get(System.getProperty("user.home"), "kamertic-data", "payments", fileName+".pdf");
         Files.copy(file.getInputStream(), filePath);
-        Student student=studentRepository.findByCode(studentCode);
+        Student student=studentRepository.findByCode(newPaymentDTO.getStudentCode());
         Payment payment=Payment.builder()
-                .date(date)
-                .amount(amount)
+                .date(newPaymentDTO.getDate())
+                .type(newPaymentDTO.getType())
+                .amount(newPaymentDTO.getAmount())
                 .status(PaymentStatus.CREATED)
                 .file(filePath.toUri().toString())
                 .student(student)

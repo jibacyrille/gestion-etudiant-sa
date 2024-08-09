@@ -31,6 +31,13 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { NewPaymentComponent } from './new-payment/new-payment.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -45,7 +52,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     StudentsComponent,
     PaymentsComponent,
     DashboardComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    NewPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +71,14 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,MatPaginatorModule,
-    MatSortModule 
+    MatSortModule,
+    FlexLayoutModule,
+    FlexLayoutServerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule, 
+    PdfViewerModule
+
   ],
   providers: [
     provideHttpClient(withFetch()),
