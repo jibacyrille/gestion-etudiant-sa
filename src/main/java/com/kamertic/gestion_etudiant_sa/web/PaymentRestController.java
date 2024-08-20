@@ -9,6 +9,7 @@ import com.kamertic.gestion_etudiant_sa.repository.PaymentRepository;
 import com.kamertic.gestion_etudiant_sa.repository.StudentRepository;
 import com.kamertic.gestion_etudiant_sa.services.PaymentService;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -66,6 +67,12 @@ public class PaymentRestController {
     public Student getStudentByCode(@PathVariable String code){
         return studentRepository.findByCode(code);
     }
+
+    @DeleteMapping(path = "delete/payments/{id}")
+    public void deletePayment(@PathVariable Long id) {
+        paymentRepository.deleteById(id);
+    }
+
 
     @GetMapping(path="/studentsByProgramId")
     public List<Student> getStudentsByProgramId(@RequestParam String programId){
