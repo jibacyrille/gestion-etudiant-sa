@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +41,7 @@ import { NewPaymentComponent } from './new-payment/new-payment.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -57,7 +59,8 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
     DashboardComponent,
     StudentDetailsComponent,
     NewPaymentComponent,
-    PaymentDetailsComponent
+    PaymentDetailsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
     MatNativeDateModule,
     MatSelectModule, 
     PdfViewerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FlexLayoutModule
 
   ],
   providers: [

@@ -27,16 +27,16 @@ public class GestionEtudiantSaApplication {
 										PaymentRepository paymentRepository){
 		return args->{
 			studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-					.firstName("Mohamed").code("112233").programId("SDIA")
+					.firstName("Mohamed").lastName("Nsangou").code("112233").programId("SDIA")
 					.build());
 			studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-					.firstName("Imane").code("112244").programId("SDIA")
+					.firstName("Imane").lastName("Hycham").code("112244").programId("SDIA")
 					.build());
 			studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-					.firstName("Yasmine").code("112255").programId("GLSID")
+					.firstName("Yasmine").lastName("Sebri").code("112255").programId("GLSID")
 					.build());
 			studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-					.firstName("Cyrille").code("112266").programId("MI")
+					.firstName("Cyrille").lastName("Jiba").code("112266").programId("MI")
 					.build());
 
 			PaymentType[] paymentTypes=PaymentType.values();

@@ -1,10 +1,14 @@
 <mat-toolbar color="primary">
     <button mat-icon-button (click)="myDrawer.toggle()">
       <mat-icon>menu</mat-icon>
+      <mat-label mat-button class="custom-menu-button-font-size" style="margin-left: 6px; display: flexbox;">La Gagne</mat-label>
     </button>
-    <span style="flex: auto"></span>
+    <span style="flex: 1; text-align: center;">
+        Lycée bilingue de Deido - Gestion Scolaire
+      </span>
+    
     <button mat-flat-button routerLink="/admin/home">Home</button>
-    <button mat-button routerLink="/admin/profile">Profile</button>
+    <button mat-button routerLink="/admin/user-profile">Profile</button>
     <button *ngIf="authService.roles.includes('ADMIN')" mat-button [matMenuTriggerFor]="importMenu">
         <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
         Import</button>
@@ -22,18 +26,23 @@
     <mat-drawer #myDrawer opened="true" mode="side" position="start">
         <mat-list>
            <mat-list-item>
-                <button mat-button routerLink="/admin/dashboard">
-                    <mat-icon>dashboard</mat-icon>
-                    Dashboard</button>
+                <button mat-button routerLink="/admin/dashboard" mat-button class="custom-button-font-size">
+                    <mat-icon color="warn">dashboard</mat-icon>
+                    <mat-label mat-button class="custom-button-font-size">Dashboard</mat-label></button>
+            </mat-list-item> 
+            <mat-list-item>
+                <button mat-button routerLink="/admin/dashboard" mat-button class="custom-button-font-size">
+                    <mat-icon color="warn">dashboard</mat-icon>
+                    <mat-label mat-button class="custom-button-font-size">Inscriptions</mat-label></button>
             </mat-list-item> 
            <mat-list-item>
-             <button mat-button routerLink="/admin/students">
-                <mat-icon>dashboard</mat-icon>
+             <button mat-button routerLink="/admin/students" mat-button class="custom-button-font-size">
+                <mat-icon color="accent">dashboard</mat-icon>
                 Students</button>
            </mat-list-item> 
            <mat-list-item>
-            <button mat-button routerLink="/admin/payments">
-                <mat-icon>dashboard</mat-icon>
+            <button mat-button routerLink="/admin/payments" mat-button class="custom-button-font-size">
+                <mat-icon color="primary">dashboard</mat-icon>
                 Payments</button>
           </mat-list-item> 
         </mat-list>
