@@ -16,6 +16,6 @@ public class Payment {
     private PaymentStatus status;
     private String file;
     @ManyToOne//plusieurs paiements pour un etudiant
-    private Student student;
+    private Eleve eleve;
 
 }

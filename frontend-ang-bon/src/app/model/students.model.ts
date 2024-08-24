@@ -7,6 +7,14 @@ export interface Student {
     photo: String,
 
 }
+export interface EleveInitDTO {
+    id: String,
+    matricule:String,
+    nom: String,
+    prenom: String,
+    classe: String
+
+}
 
 export interface Payment {
     id: String,
@@ -15,7 +23,7 @@ export interface Payment {
     type: String,
     status: String,
     file: String,
-    student: Student
+    eleve: Student
 }
 
 export enum PaymentType {
@@ -24,4 +32,7 @@ export enum PaymentType {
 
 export enum PaymentStatus {
     CREATED, VALIDATED, REJECTED
+}
+export enum ClassList {
+    "6EME", "5EME", "4EME", "3EME", "2NDE", "1ERE", "6TLE"
 }

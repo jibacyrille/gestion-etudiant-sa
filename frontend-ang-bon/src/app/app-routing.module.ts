@@ -15,11 +15,13 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { NewPaymentComponent } from './new-payment/new-payment.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NewStudentComponent } from './new-student/new-student.component';
+import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 
 const routes: Routes = [
   {path: "", component : LoginComponent},
   {path: "login", component : LoginComponent},
-  {path: "admin", component : AdminTemplateComponent, 
+  {path: "admin", component : AdminTemplateComponent,
     canActivate : [AuthGuard],
     children : [
       {path: "home", component : HomeComponent},
@@ -32,13 +34,16 @@ const routes: Routes = [
       {path: "dashboard", component : DashboardComponent},
       {path: "students", component : StudentsComponent},
       {path: "payments", component : PaymentsComponent},
-      {path: "student-details/:code", component : StudentDetailsComponent},
+      {path: "eleve-details/:code", component : StudentDetailsComponent},
       {path: "new-payment/:studentCode", component : NewPaymentComponent},
       {path: "payment-details/:id", component : PaymentDetailsComponent},
-      {path: "user-profile", component : UserProfileComponent}
+      {path: "user-profile", component : UserProfileComponent},
+      {path: "init-eleve", component : NewStudentComponent},
+      {path: "inscriptions", component : InscriptionsComponent}
+      
 
     ]},
-  
+
 ];
 
 @NgModule({

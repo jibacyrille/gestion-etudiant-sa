@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-student-details',
+  selector: 'app-eleve-details',
   templateUrl: './student-details.component.html',
   styleUrl: './student-details.component.css'
 })
@@ -40,7 +40,7 @@ export class StudentDetailsComponent implements OnInit {
       },
       error: err =>{
         console.log(err)
-      } 
+      }
     })
   }
 

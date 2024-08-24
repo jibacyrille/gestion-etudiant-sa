@@ -24,7 +24,7 @@ export class StudentsComponent implements OnInit{
   constructor(private studentsService : StudentsService, private router:Router){
   }
   ngOnInit(): void {
-    this.studentsService.getStudents()
+    this.studentsService.getStudents1()
       .subscribe({
         next : data=>{
           this.students=data
@@ -36,10 +36,10 @@ export class StudentsComponent implements OnInit{
           console.log(err)
         }
       })
-    
+
   }
 
-  studentPayments(student: Student) {
-    this.router.navigateByUrl('/admin/student-details/'+student.code);
+  studentPayments(eleve: Student) {
+    this.router.navigateByUrl('/admin/eleve-details/'+eleve.code);
     }
 }

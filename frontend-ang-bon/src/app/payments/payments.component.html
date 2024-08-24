@@ -3,7 +3,7 @@
         <mat-card-header>
             <mat-card-title>
                 Payments
-            </mat-card-title>            
+            </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
         <mat-card-content>
@@ -13,30 +13,30 @@
               <mat-label>Filter</mat-label>
               <input matInput (keyup)="applyFilter($event)" placeholder="Filter by keyword">
             </mat-form-field>
-           
+
             <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!--- Note that these columns can be defined in any order.
                       The actual rendered columns are set as a property on the row definition" -->
-              
+
                 <!-- Position Column -->
                 <ng-container matColumnDef="id">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                   <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                 </ng-container>
-              
+
                 <!-- Name Column -->
                 <ng-container matColumnDef="date">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
                   <td mat-cell *matCellDef="let element"> {{element.date}} </td>
                 </ng-container>
-              
+
                 <!-- Weight Column -->
                 <ng-container matColumnDef="amount">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
                   <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
                 </ng-container>
-              
+
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="type">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
@@ -52,7 +52,7 @@
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="firstName">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> firstName</th>
-                    <td mat-cell *matCellDef="let element"> {{element.student.firstName}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.eleve.firstName}} </td>
                 </ng-container>
 
 
@@ -86,7 +86,7 @@
 
 
 
-              
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>

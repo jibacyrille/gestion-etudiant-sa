@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Payment, Student } from '../model/students.model';
+import { EleveInitDTO, Payment, Student } from '../model/students.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService {
-
+  
   constructor(private http: HttpClient) { }
 
   public getAllPayments():Observable<Array<Payment>>{
@@ -16,7 +16,12 @@ export class StudentsService {
     //return this.http.get(`${environment.backendHost}/payments`);
   }
 
-  public getStudents():Observable<Array<Student>>{
+  public getStudents():Observable<Array<EleveInitDTO>>{
+    return this.http.get<Array<EleveInitDTO>>(environment.backendHost+"/inscription/liste");
+    //return this.http.get(`${environment.backendHost}/payments`);
+  }
+
+  public getStudents1():Observable<Array<Student>>{
     return this.http.get<Array<Student>>(environment.backendHost+"/students");
     //return this.http.get(`${environment.backendHost}/payments`);
   }
@@ -40,6 +45,10 @@ export class StudentsService {
 
   public deletePaymentByID(code:Number): Observable<void>{
     return this.http.delete<void>(`${environment.backendHost}/delete/payments/${code}`);
+  }
+
+  initStudent(formData: FormData):Observable<EleveInitDTO> {
+    return this.http.post<any> (`${environment.backendHost}/init-eleve`, formData)
   }
 
 }

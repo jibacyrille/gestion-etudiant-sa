@@ -42,6 +42,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NewStudentComponent } from './new-student/new-student.component';
+import { InscriptionsComponent } from './inscriptions/inscriptions.component';
+import { ListeInscriptionComponent } from './liste-inscription/liste-inscription.component';
 
 
 
@@ -60,7 +63,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     StudentDetailsComponent,
     NewPaymentComponent,
     PaymentDetailsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NewStudentComponent,
+    InscriptionsComponent,
+    ListeInscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +89,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     //FlexLayoutServerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule, 
+    MatSelectModule,
     PdfViewerModule,
     MatProgressSpinnerModule,
     FlexLayoutModule

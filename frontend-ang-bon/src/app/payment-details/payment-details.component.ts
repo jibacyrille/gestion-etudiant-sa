@@ -16,7 +16,7 @@ export class PaymentDetailsComponent implements OnInit {
   studentCode!:String;
   pdfFileUrl:any;
   payment!: Payment
-  constructor( 
+  constructor(
     private studentService:StudentsService,
     private route: ActivatedRoute,
     private router:Router
@@ -28,7 +28,7 @@ ngOnInit(): void {
 
   this.studentService.getPaymentByID(this.paymentId).subscribe({
     next : value => {
-      this.studentCode=value.student.code;
+      this.studentCode=value.eleve.code;
 
     }, error : err =>{
       console.log(err)
@@ -44,11 +44,11 @@ ngOnInit(): void {
       console.log(err)
     }
   });
-  
+
 }
 
 afterLoadComplete($event: any) {
-  
+
   }
   newPayment() {
     this.router.navigateByUrl(`/admin/new-payment/${this.studentCode}`);

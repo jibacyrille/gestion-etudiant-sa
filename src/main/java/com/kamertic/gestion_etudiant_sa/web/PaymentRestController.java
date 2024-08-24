@@ -1,41 +1,33 @@
 package com.kamertic.gestion_etudiant_sa.web;
 
 import com.kamertic.gestion_etudiant_sa.dtos.PaymentDTO;
+import com.kamertic.gestion_etudiant_sa.entities.Eleve;
 import com.kamertic.gestion_etudiant_sa.entities.Payment;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentStatus;
 import com.kamertic.gestion_etudiant_sa.entities.PaymentType;
-import com.kamertic.gestion_etudiant_sa.entities.Student;
 import com.kamertic.gestion_etudiant_sa.repository.PaymentRepository;
-import com.kamertic.gestion_etudiant_sa.repository.StudentRepository;
+import com.kamertic.gestion_etudiant_sa.repository.EleveRepository;
 import com.kamertic.gestion_etudiant_sa.services.PaymentService;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin("*")
 public class PaymentRestController {
-    private StudentRepository studentRepository;
+    private EleveRepository eleveRepository;
     private PaymentRepository paymentRepository;
     private PaymentService paymentService;
-    public PaymentRestController(PaymentRepository paymentRepository, StudentRepository studentRepository,
+    public PaymentRestController(PaymentRepository paymentRepository, EleveRepository eleveRepository,
                                  PaymentService paymentService){
         this.paymentRepository=paymentRepository;
-        this.studentRepository=studentRepository;
+        this.eleveRepository = eleveRepository;
         this.paymentService=paymentService;
     }
-
+/*
     @GetMapping(path="/payments")
     public List<Payment> allPayments(){
         return paymentRepository.findAll();
@@ -60,12 +52,12 @@ public class PaymentRestController {
         return paymentRepository.findById(id).get();
     }
     @GetMapping(path="/students")
-    public List<Student> allStudents(){
-        return studentRepository.findAll();
+    public List<Eleve> allStudents(){
+        return eleveRepository.findAll();
     }
     @GetMapping(path="/students/{code}")
-    public Student getStudentByCode(@PathVariable String code){
-        return studentRepository.findByCode(code);
+    public Eleve getStudentByCode(@PathVariable String code){
+        return eleveRepository.findByCode(code);
     }
 
     @DeleteMapping(path = "delete/payments/{id}")
@@ -75,8 +67,8 @@ public class PaymentRestController {
 
 
     @GetMapping(path="/studentsByProgramId")
-    public List<Student> getStudentsByProgramId(@RequestParam String programId){
-        return studentRepository.findByProgramId(programId);
+    public List<Eleve> getStudentsByProgramId(@RequestParam String programId){
+        return eleveRepository.findByProgramId(programId);
     }
 
     @PutMapping(path="/payments/{id}")
@@ -93,6 +85,6 @@ public class PaymentRestController {
     @GetMapping(path="/paymentFile/{paymentId}", produces=MediaType.APPLICATION_PDF_VALUE)
     public byte[] getPaymentFile(@PathVariable Long paymentId) throws IOException {
         return this.paymentService.getPaymentFile(paymentId);
-    }
+    }*/
 
 }
